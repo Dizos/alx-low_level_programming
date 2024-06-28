@@ -3,7 +3,8 @@
  * print_triangle - prints a triangle of a specified size
  * @size: size of the triangle to print
  *
- * Description: If size is 0 or less, prints only a new line.
+ * Description:
+ * If size is 0 or less, prints only a new line.
  * Uses only _putchar to print output.
  */
 void print_triangle(int size)
@@ -14,11 +15,11 @@ void print_triangle(int size)
         _putchar('\n');
         return;
     }
-    for (row = 1; row <= size; row++)
+    for (row = 0; row < size; row++)
     {
-        for (column = 1; column <= size; column++)
+        for (column = 0; column < size; column++)
         {
-            if (column <= size - row)
+            if (column < size - row - 1)
                 _putchar(' ');
             else
                 _putchar('#');
