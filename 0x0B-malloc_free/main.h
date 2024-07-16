@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/* edit */
 char *create_array(unsigned int size, char c);
 int _putchar(char c);
 
