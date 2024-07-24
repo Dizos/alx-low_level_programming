@@ -6,16 +6,16 @@
  * @array: the array of integers
  * @size: the size of the array
  * @action: pointer to the function to use
- *  * Return: Nothing.
+ * Return: Nothing.
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	size_t i;
-	if (array && action)
+    size_t i;
+
+    if (array == NULL || action == NULL)
+        return;
+    for (i = 0; i < size; i++)
     {
-        for (i = 0; i < size; i++)
-        {
-            action(array[i]);
-        }
+        action(array[i]);
     }
 }
