@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print_all - Prints anything, followed by a new line.
+ * print_all - Prints anything based on the format specified.
  * @format: A list of types of arguments passed to the function.
  *
  * Return: Nothing.
@@ -11,25 +11,24 @@
 void print_all(const char * const format, ...)
 {
     va_list args;
-    unsigned int i = 0, j, printed = 0;
-    char *str;
+    unsigned int i = 0, j = 0;
+    char *str, *separator = "";
     const char t_args[] = "cifs";
-    char *separator = "";
 
     va_start(args, format);
     
     while (format && format[i])
     {
-        j = 0;
         while (t_args[j])
         {
-            if (format[i] == t_args[j] && printed)
+            if (format[i] == t_args[j] && *separator)
             {
                 printf("%s", separator);
                 break;
             }
             j++;
         }
+        j = 0;
         switch (format[i])
         {
             case 'c':
@@ -44,3 +43,16 @@ void print_all(const char * const format, ...)
             case 's':
                 str = va_arg(args, char *);
                 if (!str)
+                    str = "(nil)";
+                printf("%s%s", separator, str);
+                break;
+            default:
+                i++;
+                continue;
+        }
+        separator = ", ";
+        i++;
+    }
+    printf("\n");
+    va_end(args);
+}
