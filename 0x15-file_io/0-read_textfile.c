@@ -1,7 +1,7 @@
-#include <unistd.h> // for read, write, close
-#include <fcntl.h>  // for open
-#include <stdlib.h> // for exit
-#include "main.h"   // Assuming _putchar is defined here
+#include <unistd.h> 
+#include <fcntl.h>  
+#include <stdlib.h> 
+#include "main.h"   
 
 /**
  * read_textfile - reads a text file and prints it to the POSIX standard output.
