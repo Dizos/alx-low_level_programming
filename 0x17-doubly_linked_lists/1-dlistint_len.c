@@ -7,13 +7,21 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
+    const dlistint_t *current = h;
     size_t count = 0;
 
-    while (h != NULL)
-    {
+    if (h == NULL)
+        return 0;
+
+    // Move to the last node
+    while (current->next != NULL)
+        current = current->next;
+
+    // Count nodes moving backwards
+    do {
         count++;
-        h = h->next;
-    }
+        current = current->prev;
+    } while (current != NULL);
 
     return count;
 }
