@@ -13,4 +13,13 @@
  */
 int linear_search(int *array, size_t size, int value);
 
+/**
+ * @brief Searches for a value in a sorted array using Binary search algorithm
+ * @param array Pointer to the first element of the array to search in
+ * @param size Number of elements in the array
+ * @param value Value to search for
+ * @return Index where value is located, or -1 if not found or array is NULL
+ */
+int binary_search(int *array, size_t size, int value);
+
 #endif /* SEARCH_ALGOS_H */
